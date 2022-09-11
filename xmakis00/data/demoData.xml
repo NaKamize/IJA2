@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<data>
+    <defines>
+        <categories>
+            <category id="0">Ovocie</category>
+            <category id="1">Zelenina</category>
+            <category id="2">Pečivo</category>
+            <category id="3">Mliečne výrobky</category>
+            <category id="4">Mäso</category>
+            <category id="5">Ryby</category>
+            <category id="6">Nápoje</category>
+            <category id="7">Alkohol</category>
+            <category id="8">Záhradníctvo</category>
+            <category id="9">Stavebníctvo</category>
+        </categories>
+        <types>
+            <type id="0" category="0" weight="0.2">Jablká</type>
+            <type id="1" category="0" weight="0.1">Kiwi</type>
+            <type id="2" category="1" weight="0.1">Mrkva</type>
+            <type id="3" category="1" weight="0.1">Petržlen</type>
+            <type id="4" category="1" weight="0.3">Zemiaky</type>
+            <type id="5" category="1" weight="1.0">Kapusta</type>
+            <type id="6" category="1" weight="0.3">Paradajky BIO</type>
+            <type id="7" category="4" weight="0.2">Bravčové mäso</type>
+            <type id="8" category="4" weight="0.1">Kuracie mäso</type>
+        </types>
+    </defines>
+    <items>
+        <item shelfid="0" typeid="0" count="4"/>
+        <item shelfid="1" typeid="1" count="2"/>
+        <item shelfid="2" typeid="4" count="3"/>
+        <item shelfid="3" typeid="4" count="2"/>
+        <item shelfid="4" typeid="4" count="1"/>
+        <item shelfid="5" typeid="7" count="10"/>
+        <item shelfid="6" typeid="8" count="5"/>
+        <item shelfid="7" typeid="8" count="6"/>
+    </items>
+</data>

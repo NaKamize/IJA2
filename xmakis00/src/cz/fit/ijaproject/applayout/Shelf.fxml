@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="shelfDialogPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.fit.ijaproject.controller.ShelfDialogController">
+   <children>
+      <Text fx:id="Rrgald" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Regálu :" wrappingWidth="99.7294921875" />
+      <TextField fx:id="regalIdField" layoutX="131.0" layoutY="12.0" onAction="#shelfIdAction" onMouseExited="#shelfIdExited" />
+      <Text fx:id="typeId" layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Typu :" />
+      <TextField fx:id="typeIdField" layoutX="131.0" layoutY="72.0" onAction="#typeIdAction" onMouseExited="#typeIdExited" />
+      <Text fx:id="početPoložiek" layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Počet položiek:" />
+      <TextField fx:id="countField" layoutX="131.0" layoutY="42.0" onAction="#shelfCountAction" onMouseExited="#shelfCountExited" />
+      <Text fx:id="názovTypu" layoutX="14.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Názov typu:" />
+      <Text fx:id="váhaTypu" layoutX="14.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Váha typu:" />
+      <Text fx:id="kategória" layoutX="15.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kategória:" />
+      <Text fx:id="kategóriaId" layoutX="14.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Kategórie :" />
+      <TextField fx:id="nameTypeField" layoutX="131.0" layoutY="102.0" onAction="#nameTypeAction" onMouseExited="#nameTypeExited" />
+      <TextField fx:id="weightTypeField" layoutX="131.0" layoutY="132.0" onAction="#weightTypeAction" onMouseExited="#weightTypeExited" />
+      <TextField fx:id="categoryIdField" layoutX="131.0" layoutY="162.0" onAction="#categoryIdAction" onMouseExited="#categoryIdExited" />
+      <TextField fx:id="categoryField" layoutX="131.0" layoutY="192.0" onAction="#categoryNameAction" onMouseExited="#categoryNameExited" />
+      <Button fx:id="addButton" layoutX="40.0" layoutY="271.0" mnemonicParsing="false" onAction="#AddOrConfirmShelf" prefHeight="30.0" prefWidth="150.0" text="Pridať" AnchorPane.leftAnchor="40.0" />
+      <Button fx:id="deleteButton" layoutX="227.0" layoutY="271.0" mnemonicParsing="false" onAction="#removeShelf" prefHeight="30.0" prefWidth="150.0" text="Odobrať regál" AnchorPane.rightAnchor="40.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,101 @@
+<project>
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="dest" location="dest"/>
+    <property name="lib" location="lib"/>
+    <property name="doc" location="doc"/>
+    <property name="jarname" value="ija-app.jar"/>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${dest}"/>
+    </target>
+
+    <target name="compile-only">
+        <mkdir dir="${build}"/>
+        <javac srcdir="${src}" source="11" target="11" includeantruntime="true" destdir="${build}">
+            <compilerarg
+                    line="--module-path lib --add-modules javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls"/>
+        </javac>
+    </target>
+
+    <target name="compile" depends="compile-only">
+        <mkdir dir="${dest}"/>
+        <exec executable="jar" dir="build">
+            <arg value="cvfe"/>
+            <arg value="${jarname}"/>
+            <arg value="cz.fit.ijaproject.Main"/>
+            <arg value="."/>
+        </exec>
+        <exec executable="mv" dir=".">
+            <arg value="${build}/${jarname}"/>
+            <arg value="${dest}"/>
+        </exec>
+        <exec executable="cp" dir=".">
+            <arg value="-r"/>
+            <arg value="${lib}"/>
+            <arg value="${dest}"/>
+        </exec>
+        <exec executable="cp" dir=".">
+            <arg value="-r"/>
+            <arg value="data"/>
+            <arg value="${dest}"/>
+        </exec>
+        <exec executable="mkdir" dir=".">
+            <arg value="-p"/>
+            <arg value="${dest}/src/cz/fit/ijaproject/applayout"/>
+        </exec>
+        <exec executable="cp" dir=".">
+            <arg value="src/cz/fit/ijaproject/applayout/AppScene.fxml"/>
+            <arg value="${dest}/src/cz/fit/ijaproject/applayout"/>
+        </exec>
+        <exec executable="cp" dir=".">
+            <arg value="src/cz/fit/ijaproject/applayout/Shelf.fxml"/>
+            <arg value="${dest}/src/cz/fit/ijaproject/applayout"/>
+        </exec>
+    </target>
+
+    <target name="run" depends="compile">
+        <exec executable="java" dir="dest">
+            <arg value="--module-path"/>
+            <arg value="${lib}"/>
+            <arg value="--add-modules"/>
+            <arg value="javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls"/>
+            <arg value="-cp"/>
+            <arg value="${build}"/>
+            <arg value="cz.fit.ijaproject.Main"/>
+            <arg value="--map-data=data/demoMap.xml"/>
+            <arg value="--item-data=data/demoData.xml"/>
+        </exec>
+    </target>
+
+    <target name="run-dev" depends="compile-only">
+        <exec executable="java" dir=".">
+            <arg value="--module-path"/>
+            <arg value="${lib}"/>
+            <arg value="--add-modules"/>
+            <arg value="javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls"/>
+            <arg value="-cp"/>
+            <arg value="${build}"/>
+            <arg value="cz.fit.ijaproject.Main"/>
+            <arg value="--map-data=data/demoMap.xml"/>
+            <arg value="--item-data=data/demoData.xml"/>
+        </exec>
+    </target>
+
+    <target name="doc">
+        <mkdir dir="${doc}/generated"/>
+        <exec executable="javadoc" dir=".">
+            <arg value="-sourcepath"/>
+            <arg value="${src}"/>
+            <arg value="-d"/>
+            <arg value="${doc}/generated"/>
+            <arg value="-subpackages"/>
+            <arg value="cz.fit.ijaproject:test.cz.fit.ijaproject"/>
+            <arg value="--module-path"/>
+            <arg value="lib"/>
+            <arg value="--add-modules"/>
+            <arg value="javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls"/>
+        </exec>
+    </target>
+</project>
